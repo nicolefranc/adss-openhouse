@@ -83,7 +83,7 @@ const Location = props => {
                 </ImgHolder>
             </Container>
             <Tour>
-                <iframe width="100%" height="480px" 
+                <iframe width="100%" height="480px" title={props.data.contentfulLocation.name} 
                     src="https://poly.google.com/view/b2lwwu7m1MN/embed?chrome=min" 
                     frameBorder="0" 
                     allowvr="yes" allow="vr; xr; accelerometer; magnetometer; gyroscope; autoplay;" 
