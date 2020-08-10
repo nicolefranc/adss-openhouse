@@ -1,11 +1,14 @@
 import React from "react"
 import Layout from "../components/Layout"
-import Hero from "../components/Hero"
 
-export default function Home() {
+const MissionPage = () => {
   return (
     <Layout>
-      <Hero />
+      <div>
+        <h1>Mission Page.</h1>
+      </div>
     </Layout>
   )
 }
+
+export default MissionPage
