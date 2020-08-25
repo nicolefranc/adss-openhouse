@@ -1,8 +1,8 @@
-const path = require("path")
+const path = require('path');
 
 module.exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
-  const locationTemplate = path.resolve("./src/templates/location.js")
+  const { createPage } = actions;
+  const locationTemplate = path.resolve('./src/templates/location.js');
   const res = await graphql(`
     query {
       allContentfulLocation {
@@ -13,7 +13,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
         }
       }
     }
-  `)
+  `);
 
   res.data.allContentfulLocation.edges.forEach(edge => {
     createPage({
@@ -22,6 +22,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
       context: {
         slug: edge.node.slug,
       },
-    })
-  })
-}
+    });
+  });
+};

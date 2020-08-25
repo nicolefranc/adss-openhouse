@@ -1,38 +1,37 @@
-import React from "react"
-import styled from "styled-components"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import React from 'react';
+import {useStaticQuery, graphql, Link} from 'gatsby';
 
-const Container = styled.ul`
-  display: flex;
-  justify-content: center;
-  padding-left: 0;
-  margin-block: 40px;
-`
+// const Container = styled.ul`
+//   display: flex;
+//   justify-content: center;
+//   padding-left: 0;
+//   margin-block: 40px;
+// `
 
-const MenuItem = styled(Link)`
-  font-family: "Ubuntu";
-  font-size: 18px;
-  padding: 10px 25px;
-  text-decoration: none;
-  // background-color: #1583D8;
-  color: #1583d8;
-  border: 2px solid #1583d8;
-  border-right: none;
+// const MenuItem = styled(Link)`
+//   font-family: "Ubuntu";
+//   font-size: 18px;
+//   padding: 10px 25px;
+//   text-decoration: none;
+//   // background-color: #1583D8;
+//   color: #1583d8;
+//   border: 2px solid #1583d8;
+//   border-right: none;
 
-  :first-child {
-    border-radius: 5px 0 0 5px;
-  }
+//   :first-child {
+//     border-radius: 5px 0 0 5px;
+//   }
 
-  :last-child {
-    border-right: 2px solid #1583d8;
-    border-radius: 0 5px 5px 0;
-  }
+//   :last-child {
+//     border-right: 2px solid #1583d8;
+//     border-radius: 0 5px 5px 0;
+//   }
 
-  :hover {
-    background-color: #1583d8;
-    color: #fff;
-  }
-`
+//   :hover {
+//     background-color: #1583d8;
+//     color: #fff;
+//   }
+// `
 
 const LocationMenu = () => {
   const data = useStaticQuery(graphql`
@@ -47,17 +46,17 @@ const LocationMenu = () => {
         }
       }
     }
-  `)
+  `);
 
   return (
-    <Container>
-      {data.allContentfulLocation.edges.map(edge => (
-        <MenuItem key={edge.node.id} to={`/explore/${edge.node.slug}`}>
+    <div>
+      {data.allContentfulLocation.edges.map((edge) => (
+        <Link key={edge.node.id} to={`/explore/${edge.node.slug}`}>
           {edge.node.name}
-        </MenuItem>
+        </Link>
       ))}
-    </Container>
-  )
-}
+    </div>
+  );
+};
 
-export default LocationMenu
+export default LocationMenu;
