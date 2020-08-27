@@ -13,7 +13,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="absolute bottom-0 left-0 right-0 max-w-6xl m-auto px-8 xl:px-0 py-4">
+    <footer className="max-w-6xl mx-auto mt-20 px-8 xl:px-0 py-8">
       <h4 className="text-sm">
         Copyright &copy; {new Date().getFullYear()} Admiralty Secondary School.
         All rights reserved.

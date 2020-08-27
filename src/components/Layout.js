@@ -19,7 +19,7 @@ const Layout = ({ children }) => {
     <div>
       {/* <Navigation /> */}
       <Header />
-      <main>{children}</main>
+      <main className="max-w-6xl px-6 xl:px-0 mx-auto">{children}</main>
       <Footer />
     </div>
   );

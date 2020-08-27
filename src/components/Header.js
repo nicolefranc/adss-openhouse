@@ -44,7 +44,7 @@ const Header = () => {
   };
 
   return (
-    <header className="py-10 px-8">
+    <header className="py-10 px-6">
       <div className="relative flex justify-between max-w-6xl m-auto z-20">
         <div>
           <Link to="/">Virtual ADSS</Link>
