@@ -2,44 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import propTypes from 'prop-types';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import gsap from 'gsap';
+import { Scrollbars } from 'react-custom-scrollbars'
 
-// const Navbar = styled.nav`
-//   background-color: #fbfbfb;
-//   padding: 20px 0;
-// `
-
-// const MaxWidth = styled.div`
-//   // max-width: 960px;
-//   max-width: 1024px;
-//   margin: 0 auto;
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-// `
-
-// const Logo = styled(Link)`
-//   font-family: "Ubuntu";
-//   font-size: 18px;
-//   color: #000;
-//   text-decoration: none;
-// `
-
-// const NavList = styled.ul`
-//   list-style: none;
-//   display: flex;
-// `
-
-// const NavItem = styled(Link)`
-//   margin-left: 35px;
-//   font-family: "Ubuntu";
-//   font-size: 16px;
-//   text-transform: uppercase;
-//   letter-spacing: 0.5px;
-//   color: #000;
-//   text-decoration: none;
-// `
-
-const Navigation = ({ state }) => {
+const Navigation = ({ state, closeMenu }) => {
   let navRef = useRef(null);
   let revealMenu = useRef(null);
   let revealMenuBackground = useRef(null);
@@ -75,8 +40,9 @@ const Navigation = ({ state }) => {
         height: '100%',
       });
       staggerReveal(revealMenuBackground, revealMenu);
-      fadeInUp(listRef);
+      // fadeInUp(listRef);
       // staggerText(listRef);
+      console.log(state.clicked)
     }
   }, [state]);
 
@@ -164,49 +130,42 @@ const Navigation = ({ state }) => {
         className="bg-blue-700 h-full overflow-hidden"
       >
         <div className="h-full max-w-6xl mx-auto px-8 xl:px-0 relative">
+            <Scrollbars>
           <nav className="w-full h-full flex items-center">
-            <ul
-              ref={el => (listRef = el)}
-              className="w-full h-full text-white text-3xl md:text-6xl font-extrabold tracking-wide"
-            >
-              {data.allContentfulLocation.edges.map(edge => (
-                <li
-                  key={edge.node.id}
-                  ref={el => (edge.node.id = el)}
-                  className="first:mt-24 h-16 md:h-32 relative"
-                  // onMouseEnter={e => handleHover(e)}
-                  // onMouseOut={e => handleHoverExit(e)}
-                >
-                  <Link
-                    to={`/explore/${edge.node.slug}`}
-                    onMouseEnter={handleHover}
-                    onMouseOut={handleHoverExit}
-                    className="hover:text-black absolute h-full"
+              <ul
+                ref={el => (listRef = el)}
+                className="w-full h-full text-white text-3xl md:text-6xl font-extrabold tracking-wide"
+              >
+                {data.allContentfulLocation.edges.map((edge, index) => (
+                  <li
+                    key={edge.node.id}
+                    ref={el => (edge.node.id = el)}
+                    className="first:mt-24 mb-20 h-12 md:h-24 relative"
+                    onClick={closeMenu}
                   >
-                    {edge.node.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+                    <Link
+                      to={`/explore/${edge.node.slug}`}
+                      onMouseEnter={handleHover}
+                      onMouseOut={handleHoverExit}
+                      className="hover:text-black absolute h-full"
+                      // onClick={closeMenu}
+                    >
+                      {edge.node.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
           </nav>
+            </Scrollbars>
         </div>
       </div>
     </div>
-    // <Navbar>
-    //   <MaxWidth>
-    //     <Logo to="/">ADSS Open House 2020</Logo>
-    //     <NavList>
-    //       <NavItem to="/">Home</NavItem>
-    //       <NavItem to="/explore">Explore</NavItem>
-    //       <NavItem to="/mission">Mission</NavItem>
-    //     </NavList>
-    //   </MaxWidth>
-    // </Navbar>
   );
 };
 
 Navigation.propTypes = {
   state: propTypes.object.isRequired,
+  closeMenu: propTypes.func.isRequired
 };
 
 export default Navigation;

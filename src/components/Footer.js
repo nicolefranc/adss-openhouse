@@ -13,8 +13,8 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="max-w-6xl mx-auto mt-20 px-8 xl:px-0 py-8">
-      <h4 className="text-sm">
+    <footer className="max-w-6xl mx-auto mt-20 py-8">
+      <h4 className="text-sm px-6 xl:px-0">
         Copyright &copy; {new Date().getFullYear()} Admiralty Secondary School.
         All rights reserved.
       </h4>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 import Navigation from './Navigation';
 
@@ -30,8 +30,6 @@ const Header = () => {
         menuName: 'Close',
       });
     }
-
-    console.log('Clicked:' + state.clicked);
   };
 
   const disableMenu = () => {
@@ -42,6 +40,10 @@ const Header = () => {
       setDisabled(false);
     }, 1200);
   };
+
+  const closeMenu = () => {
+    setState({ clicked: false, menuName: "Menu" })
+  }
 
   return (
     <header className="py-10 px-6">
@@ -59,7 +61,7 @@ const Header = () => {
           </button>
         </div>
       </div>
-      <Navigation state={state} setState={setState} />
+      <Navigation state={state} closeMenu={closeMenu} />
     </header>
   );
 };
