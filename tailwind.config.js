@@ -7,6 +7,9 @@ module.exports = {
       fontFamily: {
         sans: ['Poppins', ...defaultTheme.fontFamily.sans],
       },
+      backgroundImage: theme => ({
+        'scroll': "url('../assets/images/scroll.jpg')"
+      })
     },
     zIndex: {
       '-1': '-10',

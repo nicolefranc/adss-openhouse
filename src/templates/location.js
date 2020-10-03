@@ -63,7 +63,7 @@ const Location = ({ data }) => {
   }; 
 
   return (
-    <Layout>
+    <Layout hasBack={true}>
       {/* <LocationMenu /> */}
       <section>
         <div>

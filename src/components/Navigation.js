@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import propTypes from 'prop-types';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import gsap from 'gsap';
-import { Scrollbars } from 'react-custom-scrollbars'
 
 const Navigation = ({ state, closeMenu }) => {
   let navRef = useRef(null);
@@ -127,14 +126,14 @@ const Navigation = ({ state, closeMenu }) => {
       />
       <div
         ref={el => (revealMenu = el)}
-        className="bg-blue-700 h-full overflow-hidden"
+        // className="bg-blue-700 h-full overflow-x-hidden"
+        className="bg-scroll bg-cover bg-center h-full overflow-x-hidden"
       >
         <div className="h-full max-w-6xl mx-auto px-8 xl:px-0 relative">
-            <Scrollbars>
           <nav className="w-full h-full flex items-center">
               <ul
                 ref={el => (listRef = el)}
-                className="w-full h-full text-white text-3xl md:text-6xl font-extrabold tracking-wide"
+                className="w-full h-full text-scroll-brown text-3xl md:text-6xl font-extrabold tracking-wide"
               >
                 {data.allContentfulLocation.edges.map((edge, index) => (
                   <li
@@ -147,7 +146,7 @@ const Navigation = ({ state, closeMenu }) => {
                       to={`/explore/${edge.node.slug}`}
                       onMouseEnter={handleHover}
                       onMouseOut={handleHoverExit}
-                      className="hover:text-black absolute h-full"
+                      className="hover:text-scroll-red absolute h-full"
                       // onClick={closeMenu}
                     >
                       {edge.node.name}
@@ -156,7 +155,6 @@ const Navigation = ({ state, closeMenu }) => {
                 ))}
               </ul>
           </nav>
-            </Scrollbars>
         </div>
       </div>
     </div>
