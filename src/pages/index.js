@@ -3,6 +3,7 @@ import Layout from "../components/Layout"
 import Hero from "../components/Hero"
 // import hero from "../assets/images/hero.jpg"
 import addy from "../assets/images/addy_mascot.jpg"
+import island from "../assets/images/island.png"
 import gsap from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger"
 import MotionPathPlugin from "gsap/MotionPathPlugin"
@@ -51,61 +52,91 @@ export default function Home() {
   let line11 = useRef(null);
   let line12 = useRef(null)
 
+  let scrollDist = useRef(null)
+  let container = useRef(null)
+  let addy = useRef(null)
+  let path = useRef(null)
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
-    gsap.defaults({ease: "none"});
+    // gsap.defaults({ease: "none"});
 
-    gsap.set(ball01, {xPercent: -50, yPercent: -50})
-    gsap.set(ball02, {xPercent: -50, yPercent: -50})
-    gsap.set(ball03, {xPercent: -50, yPercent: -50})
-    gsap.set(ball04, {xPercent: -50, yPercent: -50})
-    gsap.set(ball05, {xPercent: -50, yPercent: -50})
-    gsap.set(ball06, {xPercent: -50, yPercent: -50})
-    gsap.set(ball07, {xPercent: -50, yPercent: -50})
-    gsap.set(ball08, {xPercent: -50, yPercent: -50})
-    gsap.set(ball09, {xPercent: -50, yPercent: -50})
-    gsap.set(ball10, {xPercent: -50, yPercent: -50})
-    gsap.set(ball11, {xPercent: -50, yPercent: -50})
-    gsap.set(ball12, {xPercent: -50, yPercent: -50})
-    gsap.set(ball13, {xPercent: -50, yPercent: -50})
+    // gsap.set(ball01, {xPercent: -50, yPercent: -50})
+    // gsap.set(ball02, {xPercent: -50, yPercent: -50})
+    // gsap.set(ball03, {xPercent: -50, yPercent: -50})
+    // gsap.set(ball04, {xPercent: -50, yPercent: -50})
+    // gsap.set(ball05, {xPercent: -50, yPercent: -50})
+    // gsap.set(ball06, {xPercent: -50, yPercent: -50})
+    // gsap.set(ball07, {xPercent: -50, yPercent: -50})
+    // gsap.set(ball08, {xPercent: -50, yPercent: -50})
+    // gsap.set(ball09, {xPercent: -50, yPercent: -50})
+    // gsap.set(ball10, {xPercent: -50, yPercent: -50})
+    // gsap.set(ball11, {xPercent: -50, yPercent: -50})
+    // gsap.set(ball12, {xPercent: -50, yPercent: -50})
+    // gsap.set(ball13, {xPercent: -50, yPercent: -50})
 
-    var tl = gsap.timeline({
-      defaults: {
-        duration: 0.01, 
-        autoAlpha: 1, 
-        scale: 2, 
-        transformOrigin: 'center', 
-        ease: "elastic(2.5, 1)"
-      }})
-      // .to(".ball02, .text01", {}, 0.2)
-      // .to(".ball03, .text02", {}, 0.33)
-      // .to(".ball04, .text03", {}, 0.46)
-      .to([ball02, text01], {}, 0.08)
-      .to([ball03, text02], {}, 0.13)
-      .to([ball04, text03], {}, 0.18)
-      .to([ball05, text04], {}, 0.24)
-      .to([ball06, text05], {}, 0.30)
-      .to([ball07, text06], {}, 0.41)
-      .to([ball08, text07], {}, 0.48)
-      .to([ball09, text08], {}, 0.57)
-      .to([ball10, text09], {}, 0.64)
-      .to([ball11, text10], {}, 0.71)
-      .to([ball12, text11], {}, 0.79)
-      .to([ball13, text12], {}, 0.91)
+    // var tl = gsap.timeline({
+    //   defaults: {
+    //     duration: 0.01, 
+    //     autoAlpha: 1, 
+    //     scale: 2, 
+    //     transformOrigin: 'center', 
+    //     ease: "elastic(2.5, 1)"
+    //   }})
+    //   // .to(".ball02, .text01", {}, 0.2)
+    //   // .to(".ball03, .text02", {}, 0.33)
+    //   // .to(".ball04, .text03", {}, 0.46)
+    //   .to([ball02, text01], {}, 0.08)
+    //   .to([ball03, text02], {}, 0.13)
+    //   .to([ball04, text03], {}, 0.18)
+    //   .to([ball05, text04], {}, 0.24)
+    //   .to([ball06, text05], {}, 0.30)
+    //   .to([ball07, text06], {}, 0.41)
+    //   .to([ball08, text07], {}, 0.48)
+    //   .to([ball09, text08], {}, 0.57)
+    //   .to([ball10, text09], {}, 0.64)
+    //   .to([ball11, text10], {}, 0.71)
+    //   .to([ball12, text11], {}, 0.79)
+    //   .to([ball13, text12], {}, 0.91)
 
-    var action = gsap.timeline({defaults: {duration: 1},
-      scrollTrigger: {
-        trigger: "#svg",
-        // trigger: "#target",
-        scrub: true,
-        start: "top center",
-        end: "bottom center"
-      }})
-      // .to(".ball01", {duration: 0.01, autoAlpha: 1})
-      // .to(".ball01", {motionPath: {path: ".theLine", alignOrigin: [0.5, 0.5]}}, 0)
-      .to(ball01, {duration: 0.01, autoAlpha: 1})
-      .to(ball01, {motionPath: {path: theLine, alignOrigin: [0.5, 0.5]}}, 0)
-      .add(tl, 0);
+    // var action = gsap.timeline({defaults: {duration: 1},
+    //   scrollTrigger: {
+    //     trigger: "#svg",
+    //     // trigger: "#target",
+    //     scrub: true,
+    //     start: "top center",
+    //     end: "bottom center"
+    //   }})
+    //   // .to(".ball01", {duration: 0.01, autoAlpha: 1})
+    //   // .to(".ball01", {motionPath: {path: ".theLine", alignOrigin: [0.5, 0.5]}}, 0)
+    //   .to(ball01, {duration: 0.01, autoAlpha: 1})
+    //   .to(ball01, {motionPath: {path: theLine, alignOrigin: [0.5, 0.5]}}, 0)
+    //   .add(tl, 0);
+
+
+    // set initial states
+    gsap.timeline() 
+        .set(scrollDist, {width:'100%', height:'500%'})
+        .set(container, {position:'fixed', width:1980, height:1980, transformOrigin:'0 0', left:window.innerWidth/2, top:window.innerHeight/2})
+        .from(container, {opacity:0, ease:'power1.inOut', duration:1}, 0.3)
+
+    //tween the svg path + circle
+    gsap.timeline({defaults:{ease:'none'}, scrollTrigger:{trigger:scrollDist, start:'top top', end:'bottom bottom', scrub:1}}) 
+        .to(addy, {motionPath: {path: path, alignOrigin: [0.5, 0.5]}, immediateRender:true}, 0)
+        // .from('#p', {drawSVG:'0 0'}, 0)
+
+    //move container to follow circle
+    let povDelay = 0.1, 
+        pos = { x:-1980, y:-1980 },
+        xSet = gsap.quickSetter(container, "x", "px"),
+        ySet = gsap.quickSetter(container, "y", "px");
+
+    gsap.ticker.add(() => {  
+      pos.x += (-gsap.getProperty(addy, 'x') - pos.x) * povDelay;
+      pos.y += (-gsap.getProperty(addy, 'y') - pos.y) * povDelay;
+      xSet(pos.x);
+      ySet(pos.y);
+    })
 
   }, [])
 
@@ -120,20 +151,7 @@ export default function Home() {
     <Layout>
       <Hero />
 
-      <svg ref={el => (svg = el)} id="svg" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 600 2600">
-        {/* <path ref={el => (line01 = el)} className="line01 line" d="M 10 200  600 200" ></path>
-        <path ref={el => (line02 = el)} className="line02 line" d="M 10 400  600 400" ></path>
-        <path ref={el => (line03 = el)} className="line03 line" d="M 10 600  600 600" ></path>
-        <path ref={el => (line04 = el)} className="line04 line" d="M 10 800  600 800" ></path>
-        <path ref={el => (line05 = el)} className="line05 line" d="M 10 1000 600 1000" ></path>
-        <path ref={el => (line06 = el)} className="line05 line" d="M 10 1200 600 1200" ></path>
-        <path ref={el => (line07 = el)} className="line05 line" d="M 10 1400 600 1400" ></path>
-        <path ref={el => (line08 = el)} className="line01 line" d="M 10 1600 600 1600" ></path>
-        <path ref={el => (line09 = el)} className="line02 line" d="M 10 1800 600 1800" ></path>
-        <path ref={el => (line10 = el)} className="line03 line" d="M 10 2000 600 2000" ></path>
-        <path ref={el => (line11 = el)} className="line04 line" d="M 10 2200 600 2200" ></path>
-        <path ref={el => (line12 = el)} className="line05 line" d="M 10 2400 600 2400" ></path> */}
-        {/* CONTENT */}
+      {/* <svg ref={el => (svg = el)} id="svg" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 600 2600">
         <img className="absolute" src={addy} height="200" width="200"/>
         <text ref={el => (text01 = el)} className="text01" x="60" y="190">
           <Link to="explore/art-room">Art Room</Link>
@@ -174,7 +192,7 @@ export default function Home() {
 
         <path ref={el => (theLine = el)} className="theLine" 
               d="M -5,0
-                Q 450 230 300 450 
+                Q 450 230 300 450
                 T 130 750
                 Q 100 950 300 1000
                 T 200 1100
@@ -204,7 +222,20 @@ export default function Home() {
         <circle ref={el => (ball12 = el)} className="ball ball12" r="20" cx="480" cy="2215"></circle>
         <circle ref={el => (ball13 = el)} className="ball ball13" r="20" cx="110" cy="2425"></circle>
       </svg>
-      <h1 className="m-40 text-6xl">THANK YOU!</h1>
+      <h1 className="m-40 text-6xl">THANK YOU!</h1> */}
+  <section>
+    <div id="scrollDist" ref={el => (scrollDist = el)} className="absolute"></div>
+    <div id="container" ref={el => (container = el)} className="absolute">
+      <img src={island} width="100%" className="absolute" />
+      <img id="c" ref={el => (addy = el)} src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fadmiraltysec.moe.edu.sg%2Fqql%2Fslot%2Farticles%2Fig01%2F05e0e6a48_544.png&f=1&nofb=1" width="120"
+        className="absolute z-50" />
+      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"
+        className="absolute">
+        <path id="p" ref={el => (path = el)} stroke="#ffffff" stroke-width="0" d="M691.393+62.1462C670.072+126.11+654.482+186.197+648.973+252.305C609.817+722.18+1241.93+350.909+1191.66+702.834C1178.62+794.077+988.378+591.692+973.705+582.888C873.218+522.595+523.812+510.766+485.144+626.77C448.398+737.01+581.587+847.661+684.079+833.019C880.314+804.986+1302.73+630.461+1349.63+958.816C1356.67+1008.05+1382.25+1294.82+1364.26+1312.8C1296.65+1380.41+1139.89+1042.01+1102.43+1049.51C1072.81+1055.43+1094.79+1147.94+1081.95+1165.06C1055.46+1200.38+976.358+1248.49+998.572+1304.03C1014.56+1344+1171.14+1399.14+1119.98+1450.3C1039.81+1530.47+958.209+1332.21+863.998+1347.91C710.174+1373.55+688.135+1579.02+514.4+1579.02" fill="none" stroke-linecap="round" opacity="1" stroke-linejoin="round" stroke-dasharray="20,0,20"/>
+      </svg>
+    </div>
+  </section>
+
     </Layout>
   )
 }
