@@ -64,7 +64,6 @@ const Location = ({ data }) => {
 
   return (
     <Layout hasBack={true}>
-      {/* <LocationMenu /> */}
       <section>
         <div>
           <div className="inline-block relative">
@@ -76,7 +75,7 @@ const Location = ({ data }) => {
           </div>
           <br/>
           <div className="w-full md:w-2/3 inline-block relative mt-8">
-            <p ref={el => para = el} className="invisible">
+            <p ref={el => para = el} className="invisible leading-8 tracking-wide">
                 {data.contentfulLocation.description.description}</p>
             <div ref={el => paraBg = el}
               className="w-0 h-full bg-gray-900 absolute bottom-0"></div>

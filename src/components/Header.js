@@ -57,7 +57,7 @@ const Header = ({hasBack}) => {
           </Link>
           }
         </div>
-        <div>
+        {/* <div>
           <button
             className="px-2 border-0"
             disabled={disabled}
@@ -77,7 +77,7 @@ const Header = ({hasBack}) => {
               )
             }
           </button>
-        </div>
+        </div> */}
       </div>
       <Navigation state={state} closeMenu={closeMenu} />
     </header>

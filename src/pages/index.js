@@ -1,7 +1,7 @@
 import React, {useRef, useEffect} from "react"
 import Layout from "../components/Layout"
 import Hero from "../components/Hero"
-// import hero from "../assets/images/hero.jpg"
+import Header from '../components/Header';
 import addy from "../assets/images/addy_mascot.jpg"
 import island from "../assets/images/island.png"
 import gsap from "gsap"
@@ -58,6 +58,9 @@ export default function Home() {
   let path = useRef(null)
 
   useEffect(() => {
+    window.onresize = () => {
+      gsap.set(container, { left: window.innerWidth/2, top: window.innerWidth/2 })
+    }
     gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
     // gsap.defaults({ease: "none"});
 
@@ -114,15 +117,37 @@ export default function Home() {
     //   .add(tl, 0);
 
 
+    gsap.set(scrollDist, {width:'100%', height:'500%'})
+    gsap.set(container, {position:'fixed', width:1980, height:1980, transformOrigin:'0 0', left:window.innerWidth/2, top:window.innerHeight/2})
+        
     // set initial states
-    gsap.timeline() 
-        .set(scrollDist, {width:'100%', height:'500%'})
-        .set(container, {position:'fixed', width:1980, height:1980, transformOrigin:'0 0', left:window.innerWidth/2, top:window.innerHeight/2})
-        .from(container, {opacity:0, ease:'power1.inOut', duration:1}, 0.3)
+    var tl = gsap.timeline({
+      defaults: {
+        duration: 0.01,
+        autoAlpha: 1,
+        scale: 2,
+        transformOrigin: 'center',
+        ease: 'elastic(2.5, 1)'
+      }
+    })
+      // .from(container, {opacity:0, ease:'power1.inOut', duration:1}, 0.3)
+      .to(text01, {}, 0.04)
+      .to(text02, {}, 0.08)
+      .to(text03, {}, 0.12)
+      .to(text04, {}, 0.18)
+      .to(text05, {}, 0.22)
+      .to(text06, {}, 0.26)
+      .to(text07, {}, 0.30)
+      .to(text08, {}, 0.32)
+      .to(text09, {}, 0.36)
+      .to(text10, {}, 0.40)
+      .to(text11, {}, 0.42)
+      .to(text12, {}, 0.45)
 
     //tween the svg path + circle
-    gsap.timeline({defaults:{ease:'none'}, scrollTrigger:{trigger:scrollDist, start:'top top', end:'bottom bottom', scrub:1}}) 
+    var action = gsap.timeline({defaults:{ease:'none'}, scrollTrigger:{trigger:scrollDist, start:'top top', end:'bottom bottom', scrub:1}}) 
         .to(addy, {motionPath: {path: path, alignOrigin: [0.5, 0.5]}, immediateRender:true}, 0)
+        .add(tl, 0)
         // .from('#p', {drawSVG:'0 0'}, 0)
 
     //move container to follow circle
@@ -148,7 +173,9 @@ export default function Home() {
     //   <img src={hero} alt="Admiralty Secondary School welcomes you."
     //     className="h-screen w-100 mx-auto" />
     // </div>
-    <Layout>
+    <div>
+      <Header />
+      <main className="max-w-6xl px-6 xl:px-0 mx-auto">
       <Hero />
 
       {/* <svg ref={el => (svg = el)} id="svg" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 600 2600">
@@ -223,19 +250,55 @@ export default function Home() {
         <circle ref={el => (ball13 = el)} className="ball ball13" r="20" cx="110" cy="2425"></circle>
       </svg>
       <h1 className="m-40 text-6xl">THANK YOU!</h1> */}
-  <section>
-    <div id="scrollDist" ref={el => (scrollDist = el)} className="absolute"></div>
-    <div id="container" ref={el => (container = el)} className="absolute">
-      <img src={island} width="100%" className="absolute" />
-      <img id="c" ref={el => (addy = el)} src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fadmiraltysec.moe.edu.sg%2Fqql%2Fslot%2Farticles%2Fig01%2F05e0e6a48_544.png&f=1&nofb=1" width="120"
-        className="absolute z-50" />
-      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"
-        className="absolute">
-        <path id="p" ref={el => (path = el)} stroke="#ffffff" stroke-width="0" d="M691.393+62.1462C670.072+126.11+654.482+186.197+648.973+252.305C609.817+722.18+1241.93+350.909+1191.66+702.834C1178.62+794.077+988.378+591.692+973.705+582.888C873.218+522.595+523.812+510.766+485.144+626.77C448.398+737.01+581.587+847.661+684.079+833.019C880.314+804.986+1302.73+630.461+1349.63+958.816C1356.67+1008.05+1382.25+1294.82+1364.26+1312.8C1296.65+1380.41+1139.89+1042.01+1102.43+1049.51C1072.81+1055.43+1094.79+1147.94+1081.95+1165.06C1055.46+1200.38+976.358+1248.49+998.572+1304.03C1014.56+1344+1171.14+1399.14+1119.98+1450.3C1039.81+1530.47+958.209+1332.21+863.998+1347.91C710.174+1373.55+688.135+1579.02+514.4+1579.02" fill="none" stroke-linecap="round" opacity="1" stroke-linejoin="round" stroke-dasharray="20,0,20"/>
-      </svg>
+        <section>
+          <div id="scrollDist" ref={el => (scrollDist = el)} className="absolute"></div>
+          <div id="container" ref={el => (container = el)} className="absolute">
+            <img src={island} width="100%" className="absolute" />
+            <img id="c" ref={el => (addy = el)} src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fadmiraltysec.moe.edu.sg%2Fqql%2Fslot%2Farticles%2Fig01%2F05e0e6a48_544.png&f=1&nofb=1" width="120"
+              className="absolute z-50" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"
+              className="absolute">
+              <text ref={el => (text01 = el)} x="790" y="420">
+                <Link to="explore/art-room">Art Room</Link>
+              </text>
+              <text ref={el => (text02 = el)} className="text02" x="1150" y="490">
+                <Link to="explore/canteen">Canteen</Link>
+              </text>
+              <text ref={el => (text03 = el)} className="text03" x="850" y="650">
+                <Link to="explore/classroom">Classroom</Link>
+              </text>
+              <text ref={el => (text04 = el)} className="text04" x="410" y="700">
+                <Link to="explore/foyer">Foyer</Link>
+              </text>
+              <text ref={el => (text05 = el)} className="text05" x="680" y="790">
+                <Link to="explore/ict-space">ICT Space</Link>
+              </text>
+              <text ref={el => (text06 = el)} className="text06" x="1038" y="790">
+                <Link to="explore/indoor-sports-hall">Indoor Sports Hall</Link>
+              </text>
+              <text ref={el => (text07 = el)} className="text07" x="1250" y="1000">
+                <Link to="explore/laboratories">Laboratories</Link>
+              </text>
+              <text ref={el => (text08 = el)} className="text08" x="1290" y="1198">
+                <Link to="explore/library">Library</Link>
+              </text>
+              <text ref={el => (text09 = el)} className="text09" x="1000" y="1075">
+                <Link to="explore/parade-square">Parade Square</Link>
+              </text>
+              <text ref={el => (text10 = el)} className="text10" x="910" y="1220">
+                <Link to="explore/quadrangle">Quadrangle</Link>
+              </text>
+              <text ref={el => (text11 = el)} className="text11" x="990" y="1390">
+                <Link to="explore/school-field">School Field</Link>
+              </text>
+              <text ref={el => (text12 = el)} className="text12" x="810" y="1610">
+                <Link to="explore/school-hall">School Hall</Link>
+              </text>
+              <path id="p" ref={el => (path = el)} stroke="#ffffff" stroke-width="0" d="M691.393+62.1462C670.072+126.11+654.482+186.197+648.973+252.305C609.817+722.18+1241.93+350.909+1191.66+702.834C1178.62+794.077+988.378+591.692+973.705+582.888C873.218+522.595+523.812+510.766+485.144+626.77C448.398+737.01+581.587+847.661+684.079+833.019C880.314+804.986+1302.73+630.461+1349.63+958.816C1356.67+1008.05+1382.25+1294.82+1364.26+1312.8C1296.65+1380.41+1139.89+1042.01+1102.43+1049.51C1072.81+1055.43+1094.79+1147.94+1081.95+1165.06C1055.46+1200.38+976.358+1248.49+998.572+1304.03C1014.56+1344+1171.14+1399.14+1119.98+1450.3C1039.81+1530.47+958.209+1332.21+863.998+1347.91C710.174+1373.55+688.135+1579.02+514.4+1579.02" fill="none" stroke-linecap="round" opacity="1" stroke-linejoin="round" stroke-dasharray="20,0,20"/>
+            </svg>
+          </div>
+        </section>
+      </main>
     </div>
-  </section>
-
-    </Layout>
   )
 }

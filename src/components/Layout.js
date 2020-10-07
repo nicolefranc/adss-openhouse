@@ -11,7 +11,7 @@ const Layout = ({ children, hasBack}) => {
       {/* <Navigation /> */}
       <Header hasBack={hasBack} />
       <main className="max-w-6xl px-6 xl:px-0 mx-auto">{children}</main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };

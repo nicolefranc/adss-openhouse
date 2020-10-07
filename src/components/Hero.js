@@ -4,7 +4,7 @@ import React, { useRef, useEffect } from 'react';
 const Hero = () => {
   return (
     <article className="max-w-6xl m-auto px-2 xl:px-0">
-      <p className="text-2xl pt-40 pb-20 text-white">
+      <p className="text-2xl pt-40 text-white">
         Welcome to <span className="font-bold">Admiralty Secondary School</span>
         's Virtual Open House.
       </p>
