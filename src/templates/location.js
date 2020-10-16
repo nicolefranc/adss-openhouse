@@ -59,7 +59,7 @@ const Location = ({ data }) => {
     slidesToScroll: 1,
     lazyLoad: true,
     adaptiveHeight: true,
-    arrows: false
+    arrows: true
   }; 
 
   return (

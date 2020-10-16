@@ -8,7 +8,8 @@ module.exports = {
         sans: ['Poppins', ...defaultTheme.fontFamily.sans],
       },
       backgroundImage: theme => ({
-        'scroll': "url('../assets/images/scroll.jpg')"
+        'scroll': "url('../assets/images/scroll.jpg')",
+        'speech': "url('../assets/images/speech.png')"
       })
     },
     zIndex: {
@@ -18,6 +19,7 @@ module.exports = {
   },
   variants: {
     margin: ['first'],
+    scale: ['group-hover']
   },
   plugins: [],
 };
