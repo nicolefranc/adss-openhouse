@@ -26,30 +26,30 @@ export const query = graphql`
 `;
 
 const Location = ({ data }) => {
-  let titleBg = useRef(null);
+  // let titleBg = useRef(null);
   let title = useRef(null)
-  let paraBg = useRef(null)
+  // let paraBg = useRef(null)
   let para = useRef(null)
   let galleryNum = useRef(null)
   let galleryTitle = useRef(null)
   // let tourNum = useRef(null)
   // let tourTitle = useRef(null)
 
-  const tl = new TimelineLite()
-  const revealIn = { width: '100%', ease: Power3.easeInOut }
-  const revealOut = { width: 0, right: 0, ease: Power3.easeInOut}
-  const makeVisible = { css: { visibility: 'visible' }, ease: Power3.easeInOut }
+  // const tl = new TimelineLite()
+  // const revealIn = { width: '100%', ease: Power3.easeInOut }
+  // const revealOut = { width: 0, right: 0, ease: Power3.easeInOut}
+  // const makeVisible = { css: { visibility: 'visible' }, ease: Power3.easeInOut }
   
-  useEffect(() => {
-    tl.to([titleBg, paraBg], 1, revealIn)
-      .to([title, para], 0, makeVisible)
-      .to([titleBg, paraBg], 1, revealOut)
-      // .from(galleryNum, 1, {
-      //   height: 0,
-      //   ease: Power3.easeInOut,
-      //   delay: -1
-      // })
-  }, [data])
+  // useEffect(() => {
+  //   tl.to([titleBg, paraBg], 1, revealIn)
+  //     .to([title, para], 0, makeVisible)
+  //     .to([titleBg, paraBg], 1, revealOut)
+  //     // .from(galleryNum, 1, {
+  //     //   height: 0,
+  //     //   ease: Power3.easeInOut,
+  //     //   delay: -1
+  //     // })
+  // }, [data])
  
   var settings = {
     dots: true,
@@ -59,7 +59,6 @@ const Location = ({ data }) => {
     slidesToScroll: 1,
     lazyLoad: true,
     adaptiveHeight: true,
-    // arrows: true
   }; 
 
   return (
@@ -68,17 +67,17 @@ const Location = ({ data }) => {
         <div>
           <div className="inline-block relative">
             <h1 ref={el => title = el}
-              className="text-4xl md:text-6xl font-bold tracking-wide invisible">
+              className="text-4xl md:text-6xl font-bold tracking-wide visible"> {/* was set to invisible */}
               {data.contentfulLocation.name}</h1>
-            <div ref={el => titleBg = el}
-              className="w-0 h-full bg-gray-900 absolute bottom-0"></div>
+             {/* <div ref={el => titleBg = el}
+               className="w-0 h-full bg-gray-900 absolute bottom-0"></div> */}
           </div>
           <br/>
           <div className="w-full md:w-2/3 inline-block relative mt-8">
-            <p ref={el => para = el} className="invisible leading-8 tracking-wide">
+            <p ref={el => para = el} className="visible leading-8 tracking-wide"> {/* was set to invisible */}
                 {data.contentfulLocation.description.description}</p>
-            <div ref={el => paraBg = el}
-              className="w-0 h-full bg-gray-900 absolute bottom-0"></div>
+            {/* <div ref={el => paraBg = el}
+              className="w-0 h-full bg-gray-900 absolute bottom-0"></div> */}
           </div>
         </div>
       </section>
