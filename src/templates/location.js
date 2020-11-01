@@ -59,7 +59,7 @@ const Location = ({ data }) => {
     slidesToScroll: 1,
     lazyLoad: true,
     adaptiveHeight: true,
-    arrows: true
+    // arrows: true
   }; 
 
   return (
@@ -96,16 +96,22 @@ const Location = ({ data }) => {
             className="object-cover" />
         </div> */}
         <div className="relative mb-20">
-          {/* { console.log(data.images) } */}
           <Slider {...settings}>
+            {/* <div> */}
+              { data.contentfulLocation.images.map(image => (
+                // <div className="h-40 relative">
+                  <img src={image.fluid.src} alt={image.title}
+                    className="object-center h-72 object-contain" />
+                // </div>
+              )) }
+            {/* </div> */}
+          </Slider>
+        </div>
+        {/* <Carousel plugins={['arrows', 'infinite', 'clickToChange']}>
             { data.contentfulLocation.images.map(image => (
               <img src={image.fluid.src} alt={image.title} />
             )) }
-            {/* <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.kH-fuB-zUznhBws7s14I4QHaE7%26pid%3DApi&f=1" />
-            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.kH-fuB-zUznhBws7s14I4QHaE7%26pid%3DApi&f=1" />
-            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.kH-fuB-zUznhBws7s14I4QHaE7%26pid%3DApi&f=1" /> */}
-          </Slider>
-        </div>
+        </Carousel> */}
       </section>
       <section>
         <h2 className="text-xl md:text-2xl mt-16 mb-8 lowercase tracking-wide font-semibold">

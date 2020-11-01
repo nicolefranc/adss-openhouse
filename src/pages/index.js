@@ -116,12 +116,29 @@ export default function Home() {
             <img id="c" ref={el => (addy = el)} src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fadmiraltysec.moe.edu.sg%2Fqql%2Fslot%2Farticles%2Fig01%2F05e0e6a48_544.png&f=1&nofb=1" width="120"
               className="absolute z-50" />
             <p className="absolute text-md tracking-wider w-48" style={{ top: 80, left: 490 }}>
-              <span className="text-xl">Hi, I'm Addy!</span>
+              <span className="text-2xl">Hi, I'm Addy!</span>
               <br/>
               <span className="font-light">
-                Scroll down to explore the school with me. Click the location to find out more.
+                Scroll down to explore the school with me. Click on the various locations to find out more.
               </span>
             </p>
+            <div className="absolute z-10"
+              style={{ top: 1750, left: 370}}>
+              <h1 className="text-xl font-semibold">Admiralty Secondary School</h1>
+              <h2 className="italic pb-2">Be a guiding light that shines.</h2>
+              <div className="flex items-center py-1">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+                <p className="ml-2">31 Woodlands Crescent S(737916)</p>
+              </div>
+              <div className="flex items-center py-1">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                <p className="ml-2">admiralty_ss[at]moe.edu.sg</p>
+              </div>
+              <div className="flex items-center py-1">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                <p className="ml-2">6365 2774</p>
+              </div>
+            </div>
             
             {/* LOCATION LINKS */}
             <div>
@@ -138,8 +155,8 @@ export default function Home() {
                 style={{ top: 440, left: 1220}}>
                 <div className="flex items-center group cursor-pointer">
                   <img src={pin} alt="x" className="w-4 h-4 mr-1 transform group-hover:scale-150" />
-                  <Link to="explore/ava-room">
-                    <h1>AVA Room</h1>
+                  <Link to="explore/art-room">
+                    <h1>Art Room</h1>
                   </Link>
                 </div>
               </div>

@@ -8,7 +8,8 @@ module.exports = {
   /* Your site config here */
   siteMetadata: {
     title: 'ADSS Virtual Open House',
-    author: 'Nicole Yu nicoleyu@outlook.sg',
+    description: 'Welcome to Admiralty Secondary School\'s Virtual Open House. Where we bring the school to you.',
+    author: 'nicoleyu@outlook.sg',
   },
   plugins: [
     {

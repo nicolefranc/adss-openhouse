@@ -16,6 +16,10 @@ module.exports = {
       '-1': '-10',
       ...defaultTheme.zIndex,
     },
+    height: {
+      '72': '24rem',
+      ...defaultTheme.height
+    }
   },
   variants: {
     margin: ['first'],
