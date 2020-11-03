@@ -6,6 +6,9 @@ import addy from "../assets/images/addy_mascot.jpg"
 import island from "../assets/images/island.png"
 import pin from "../assets/images/marker.png"
 import bubble from "../assets/images/speech.png"
+import fb from "../assets/images/facebook.svg"
+import ig from "../assets/images/instagram.svg"
+import web from "../assets/images/www-click-no-border.svg"
 import gsap from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger"
 import MotionPathPlugin from "gsap/MotionPathPlugin"
@@ -18,8 +21,8 @@ export default function Home() {
   let text2pt5 = useRef(null);
   let text03 = useRef(null);
   let text3pt5 = useRef(null);
-  let text04 = useRef(null);
-  let text05 = useRef(null);
+  // let text04 = useRef(null);
+  // let text05 = useRef(null);
   let text06 = useRef(null);
   let text07 = useRef(null);
   let text08 = useRef(null);
@@ -64,8 +67,8 @@ export default function Home() {
       .to(text2pt5, {}, 0.10)
       .to(text03, {}, 0.12)
       .to(text3pt5, {}, 0.16)
-      .to(text04, {}, 0.19)
-      .to(text05, {}, 0.22)
+      // .to(text04, {}, 0.19)
+      // .to(text05, {}, 0.22)
       .to(text06, {}, 0.26)
       .to(text07, {}, 0.29)
       .to(text08, {}, 0.31)
@@ -98,15 +101,7 @@ export default function Home() {
   }, [])
 
   return (
-    // <div className="bg-sky relative">
-    //   <h2 className="absolute right-0 left-0 bottom-0 w-40 mx-auto mb-8 px-4 py-3 bg-scroll-red text-white tracking-widest uppercase text-center rounded-md cursor-pointer">
-    //     Explore
-    //   </h2>
-    //   <img src={hero} alt="Admiralty Secondary School welcomes you."
-    //     className="h-screen w-100 mx-auto" />
-    // </div>
     <div>
-      {/* <Header /> */}
       <main className="max-w-6xl px-6 xl:px-0 mx-auto">
         <Hero />
         <section>
@@ -122,19 +117,32 @@ export default function Home() {
                 Scroll down to explore the school with me. Click on the various locations to find out more.
               </span>
             </p>
+            {/* Social Icons */}
+            <div className="flex flex-row absolute z-10" style={{ top: 1740, left: 170 }}>
+              <a href="https://www.facebook.com/Admiralty-Secondary-School-105684431224254/">
+                <img src={fb} alt="Facebook" className="w-8 h-8" />
+              </a>
+              <a href="https://instagram.com/admiraltysecschool?igshid=1fcqyhbjhc66b">
+                <img src={ig} alt="Instagram" className="w-8 h-8 ml-4" />
+              </a>
+              <a href="https://admiraltysec.moe.edu.sg/">
+                <img src={web} alt="Website" className="w-8 h-8 ml-4" />
+              </a>
+            </div>
+            {/* Contact Details */}
             <div className="absolute z-10"
-              style={{ top: 1750, left: 370}}>
+              style={{ top: 1730, left: 370}}>
               <h1 className="text-xl font-semibold">Admiralty Secondary School</h1>
-              <h2 className="italic pb-2">Be a guiding light that shines.</h2>
-              <div className="flex items-center py-1">
+              <h2 className="italic pb-1">Be a guiding light that shines.</h2>
+              <div className="flex items-center pt-1">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
                 <p className="ml-2">31 Woodlands Crescent S(737916)</p>
               </div>
-              <div className="flex items-center py-1">
+              <div className="flex items-center pt-1">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                 <p className="ml-2">admiralty_ss[at]moe.edu.sg</p>
               </div>
-              <div className="flex items-center py-1">
+              <div className="flex items-center pt-1">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                 <p className="ml-2">6365 2774</p>
               </div>
@@ -187,7 +195,7 @@ export default function Home() {
                   </Link>
                 </div>
               </div>
-              <div ref={el => text04 = el} className="text absolute z-10"
+              {/* <div ref={el => text04 = el} className="text absolute z-10"
                 style={{ top: 720, left: 520}}>
                 <div className="flex items-center group cursor-pointer">
                   <img src={pin} alt="x" className="w-4 h-4 mr-1 transform group-hover:scale-150" />
@@ -195,10 +203,10 @@ export default function Home() {
                     <h1>Music Room</h1>
                   </Link>
                 </div>
-              </div>
+              </div> */}
 
               {/* SPORTS ZONE */}
-              <div ref={el => text05 = el} className="text absolute z-10"
+              {/* <div ref={el => text05 = el} className="text absolute z-10"
                 style={{ top: 890, left: 820}}>
                 <div className="flex items-center group cursor-pointer">
                   <img src={pin} alt="x" className="w-4 h-4 mr-1 transform group-hover:scale-150" />
@@ -206,7 +214,7 @@ export default function Home() {
                     <h1>Harbour</h1>
                   </Link>
                 </div>
-              </div>
+              </div> */}
               <div ref={el => text06 = el} className="text absolute z-10"
                 style={{ top: 780, left: 1080}}>
                 <div className="flex items-center group cursor-pointer">
@@ -316,7 +324,8 @@ export default function Home() {
               <text ref={el => (text12 = el)} className="text12" x="810" y="1610">
                 <Link to="explore/school-hall">School Hall</Link>
               </text> */}
-              <path id="p" ref={el => (path = el)} stroke="#ffffff" stroke-width="0" d="M691.393+62.1462C670.072+126.11+654.482+186.197+648.973+252.305C609.817+722.18+1241.93+350.909+1191.66+702.834C1178.62+794.077+988.378+591.692+973.705+582.888C873.218+522.595+523.812+510.766+485.144+626.77C448.398+737.01+581.587+847.661+684.079+833.019C880.314+804.986+1302.73+630.461+1349.63+958.816C1356.67+1008.05+1382.25+1294.82+1364.26+1312.8C1296.65+1380.41+1139.89+1042.01+1102.43+1049.51C1072.81+1055.43+1094.79+1147.94+1081.95+1165.06C1055.46+1200.38+976.358+1248.49+998.572+1304.03C1014.56+1344+1171.14+1399.14+1119.98+1450.3C1039.81+1530.47+958.209+1332.21+863.998+1347.91C710.174+1373.55+688.135+1579.02+514.4+1579.02" fill="none" stroke-linecap="round" opacity="1" stroke-linejoin="round" stroke-dasharray="20,0,20"/>
+              {/* <path id="p" ref={el => (path = el)} stroke="#ffffff" stroke-width="0" d="M691.393+62.1462C670.072+126.11+654.482+186.197+648.973+252.305C609.817+722.18+1241.93+350.909+1191.66+702.834C1178.62+794.077+988.378+591.692+973.705+582.888C873.218+522.595+523.812+510.766+485.144+626.77C448.398+737.01+581.587+847.661+684.079+833.019C880.314+804.986+1302.73+630.461+1349.63+958.816C1356.67+1008.05+1382.25+1294.82+1364.26+1312.8C1296.65+1380.41+1139.89+1042.01+1102.43+1049.51C1072.81+1055.43+1094.79+1147.94+1081.95+1165.06C1055.46+1200.38+976.358+1248.49+998.572+1304.03C1014.56+1344+1171.14+1399.14+1119.98+1450.3C1039.81+1530.47+958.209+1332.21+863.998+1347.91C710.174+1373.55+688.135+1579.02+514.4+1579.02" fill="none" stroke-linecap="round" opacity="1" stroke-linejoin="round" stroke-dasharray="20,0,20"/> */}
+              <path id="p" ref={el => (path = el)} stroke="#ffffff" stroke-width="0" d="M691.393+62.1462C670.072+126.11+654.482+186.197+648.973+252.305C609.817+722.18+1241.93+350.909+1191.66+702.834C1178.62+794.077+988.378+591.692+973.705+582.888C873.218+522.595+523.812+510.766+485.144+626.77C448.398+737.01+581.587+847.661+684.079+833.019C880.314+804.986+1302.73+630.461+1349.63+958.816C1356.67+1008.05+1382.25+1294.82+1364.26+1312.8C1296.65+1380.41+1139.89+1042.01+1102.43+1049.51C1072.81+1055.43+1094.79+1147.94+1081.95+1165.06C1055.46+1200.38+976.358+1248.49+998.572+1304.03C1014.56+1344+1171.14+1399.14+1119.98+1450.3C1039.81+1530.47+958.209+1332.21+863.998+1347.91C710.174+1373.55+688.135+1579.02+514.4+1579.02L273.561+1583.96" fill="none" stroke-linecap="round" opacity="1" stroke-linejoin="round" stroke-dasharray="20,0,20"/>
             </svg>
           </div>
         </section>

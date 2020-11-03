@@ -6,6 +6,8 @@ import { TimelineLite, Power3 } from 'gsap'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import bulb from '../assets/images/light-bulb.svg'
+import LabContent from '../components/LabContent'
 
 export const query = graphql`
   query($slug: String!) {
@@ -21,6 +23,8 @@ export const query = graphql`
         }
         title
       }
+      didYouKnow
+      slug
     }
   }
 `;
@@ -59,6 +63,7 @@ const Location = ({ data }) => {
     slidesToScroll: 1,
     lazyLoad: true,
     adaptiveHeight: true,
+    arrows: false
   }; 
 
   return (
@@ -74,12 +79,26 @@ const Location = ({ data }) => {
           </div>
           <br/>
           <div className="w-full md:w-2/3 inline-block relative mt-8">
-            <p ref={el => para = el} className="visible leading-8 tracking-wide"> {/* was set to invisible */}
-                {data.contentfulLocation.description.description}</p>
+            { data.contentfulLocation.slug == 'laboratories'
+                ? <LabContent />
+                : <p ref={el => para = el} className="visible leading-8 tracking-wide"> {/* was set to invisible */}
+                    {data.contentfulLocation.description.description}</p>
+            }
             {/* <div ref={el => paraBg = el}
               className="w-0 h-full bg-gray-900 absolute bottom-0"></div> */}
           </div>
         </div>
+        { data.contentfulLocation.didYouKnow != null && (
+            <div className="mt-10 w-full md:w-2/3 px-4 py-6 shadow-lg flex items-start bg-gray-400 bg-opacity-75">
+              <img src={bulb} alt="DYK!" className="w-8 h-8" />
+              <div className="text-black ml-4">
+                <h3 className="font-semibold uppercase">Did you know?</h3>
+                <p>
+                  {data.contentfulLocation.didYouKnow}
+                </p>
+              </div>
+            </div>
+        )}
       </section>
       <section>
         <h2 className="text-xl md:text-2xl mt-16 mb-8 lowercase tracking-wide font-semibold text-right">
