@@ -63,19 +63,19 @@ export default function Home() {
     })
       // .from(container, {opacity:0, ease:'power1.inOut', duration:1}, 0.3)
       .to(text01, {}, 0.04)
-      .to(text02, {}, 0.08)
+      .to(text02, {}, 0.07)
       .to(text2pt5, {}, 0.10)
       .to(text03, {}, 0.12)
       .to(text3pt5, {}, 0.16)
       // .to(text04, {}, 0.19)
       // .to(text05, {}, 0.22)
-      .to(text06, {}, 0.26)
-      .to(text07, {}, 0.29)
-      .to(text08, {}, 0.31)
-      .to(text09, {}, 0.32)
-      .to(text10, {}, 0.38)
-      .to(text11, {}, 0.40)
-      .to(text12, {}, 0.46)
+      .to(text06, {}, 0.24)
+      .to(text07, {}, 0.27)
+      .to(text08, {}, 0.29)
+      .to(text09, {}, 0.31)
+      .to(text10, {}, 0.36)
+      .to(text11, {}, 0.39)
+      .to(text12, {}, 0.43)
 
     //tween the svg path + circle
     var action = gsap.timeline({defaults:{ease:'none'}, scrollTrigger:{trigger:scrollDist, start:'top top', end:'bottom bottom', scrub:1}}) 
@@ -110,7 +110,7 @@ export default function Home() {
             <img src={island} width="100%" className="absolute" />
             <img id="c" ref={el => (addy = el)} src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fadmiraltysec.moe.edu.sg%2Fqql%2Fslot%2Farticles%2Fig01%2F05e0e6a48_544.png&f=1&nofb=1" width="120"
               className="absolute z-50" />
-            <p className="absolute text-md tracking-wider w-48" style={{ top: 80, left: 490 }}>
+            <p className="absolute text-md tracking-wider w-48" style={{ top: 80, left: 510 }}>
               <span className="text-2xl">Hi, I'm Addy!</span>
               <br/>
               <span className="font-light">
@@ -118,7 +118,7 @@ export default function Home() {
               </span>
             </p>
             {/* Social Icons */}
-            <div className="flex flex-row absolute z-10" style={{ top: 1740, left: 170 }}>
+            <div className="flex flex-row absolute z-10" style={{ top: 1740, left: 160 }}>
               <a href="https://www.facebook.com/Admiralty-Secondary-School-105684431224254/">
                 <img src={fb} alt="Facebook" className="w-8 h-8" />
               </a>
@@ -271,8 +271,8 @@ export default function Home() {
                 style={{ top: 1340, left: 990}}>
                 <div className="flex items-center group cursor-pointer">
                   <img src={pin} alt="x" className="w-4 h-4 mr-1 transform group-hover:scale-150" />
-                  <Link to="explore/admiral-garden">
-                    <h1>Admiral Garden</h1>
+                  <Link to="explore/admirals-garden">
+                    <h1>Admirals' Garden</h1>
                   </Link>
                 </div>
               </div>

@@ -16,7 +16,7 @@ const Hero = () => {
       style={{ top: winHeight }}>
       <p className="text-2xl text-white">
         Welcome to <span className="font-bold">Admiralty Secondary School</span>
-        's Virtual Open House.
+        's Virtual Open House
       </p>
     </article>
   );
