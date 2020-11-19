@@ -20,5 +20,11 @@ module.exports = {
       },
     },
     'gatsby-plugin-postcss',
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'G-HL0XNQN86Q'
+      }
+    }
   ],
 };
