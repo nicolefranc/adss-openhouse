@@ -21,9 +21,9 @@ module.exports = {
     },
     'gatsby-plugin-postcss',
     {
-      resolve: 'gatsby-plugin-google-analytics',
+      resolve: 'gatsby-plugin-google-gtag',
       options: {
-        trackingId: 'G-HL0XNQN86Q'
+        trackingIds: ['G-HL0XNQN86Q']
       }
     }
   ],
