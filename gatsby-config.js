@@ -8,7 +8,7 @@ module.exports = {
   /* Your site config here */
   siteMetadata: {
     title: 'ADSS Virtual Open House',
-    description: 'Welcome to Admiralty Secondary School\'s Virtual Open House. Where we bring the school to you.',
+    description: 'Ahoy! Welcome to Admiralty Secondary School\'s Virtual Open House. Join us as our school mascot, Addy, brings you in an interactive tour around the school.',
     author: 'nicoleyu@outlook.sg',
   },
   plugins: [
@@ -25,6 +25,7 @@ module.exports = {
       options: {
         trackingIds: ['G-HL0XNQN86Q']
       }
-    }
+    },
+    'gatsby-plugin-react-helmet'
   ],
 };

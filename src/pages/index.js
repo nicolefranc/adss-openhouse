@@ -13,6 +13,7 @@ import gsap from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger"
 import MotionPathPlugin from "gsap/MotionPathPlugin"
 import { Link } from "gatsby"
+import Head from "../components/Head";
 
 export default function Home() {
   // TEXT REF
@@ -102,6 +103,7 @@ export default function Home() {
 
   return (
     <div>
+      <Head />
       <main className="max-w-6xl px-6 xl:px-0 mx-auto">
         <Hero />
         <section>
